@@ -2281,192 +2281,227 @@ section {
         font-size: var(--font-size-base);
     }
     /* ===================================
-   NOWOCZESNE EFEKTY - FOREST FIT STUDIO
+   FOREST FIT STUDIO - HOVER EFFECTS
+   Dopasowany do rzeczywistej struktury HTML
    =================================== */
 
-/* ===== SPEC CARDS - HOVER EFFECTS ===== */
-
-.spec-card {
-    background-color: var(--color-surface);
-    padding: var(--space-24);
-    border-radius: var(--radius-lg);
-    text-align: center;
-    transition: all var(--duration-normal) var(--ease-standard);
-    border: 2px solid transparent;
+/* ===== QUESTIONNAIRE CARD ===== */
+.questionnaire-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    overflow: hidden;
 }
 
-.spec-card::before {
+.questionnaire-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 50px rgba(33, 128, 141, 0.25) !important;
+}
+
+/* Shimmer effect */
+.questionnaire-card::before {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(33, 128, 141, 0.1), transparent);
-    transition: left var(--duration-normal) var(--ease-standard);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
 }
 
-.spec-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--color-primary);
-    box-shadow: 0 12px 30px rgba(33, 128, 141, 0.12);
-}
-
-.spec-card:hover::before {
+.questionnaire-card:hover::before {
     left: 100%;
 }
 
-.spec-icon {
-    font-size: var(--font-size-4xl);
-    color: var(--color-primary);
-    margin-bottom: var(--space-16);
-    transition: transform var(--duration-normal) var(--ease-standard);
-}
-
-.spec-card:hover .spec-icon {
-    transform: scale(1.1) rotate(5deg);
-}
-
-.spec-card h3 {
-    margin-bottom: var(--space-10);
-    color: var(--color-text);
-}
-
-.spec-card p {
-    margin-bottom: var(--space-10);
-    font-size: var(--font-size-sm);
-    color: var(--color-text-secondary);
-}
-
-/* ===== PRICE CARDS - ENHANCED HOVER ===== */
-
-.price-card {
-    background-color: var(--color-surface);
-    padding: var(--space-24);
-    border-radius: var(--radius-lg);
-    border: 2px solid var(--color-border);
-    text-align: center;
-    transition: all var(--duration-normal) var(--ease-standard);
-    position: relative;
-    overflow: hidden;
-}
-
-.price-card::after {
+/* Top border animation */
+.questionnaire-card::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
+    width: 100%;
     height: 3px;
-    background: linear-gradient(90deg, var(--color-primary), var(--color-success), var(--color-primary));
+    background: linear-gradient(90deg, #218089, #32b8c6, #218089);
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform var(--duration-normal) var(--ease-standard);
+    transition: transform 0.3s ease;
+    border-radius: inherit;
 }
 
-.price-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 30px rgba(33, 128, 141, 0.15);
-    border-color: var(--color-primary);
-}
-
-.price-card:hover::after {
+.questionnaire-card:hover::after {
     transform: scaleX(1);
 }
 
-.price-card.featured {
-    transform: scale(1.05);
-    border-color: var(--color-primary);
-    box-shadow: 0 8px 20px rgba(33, 128, 141, 0.1);
-}
-
-.price-card.featured:hover {
-    transform: scale(1.08) translateY(-10px);
-    box-shadow: 0 16px 40px rgba(33, 128, 141, 0.15);
-}
-
-.price {
-    font-size: var(--font-size-3xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-primary);
-    margin: var(--space-16) 0;
-}
-
-.price-per {
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-normal);
-    color: var(--color-text-secondary);
-}
-
-.price-features {
-    list-style: none;
-    padding: 0;
-    margin: var(--space-16) 0;
-    text-align: left;
-}
-
-.price-features li {
-    padding: var(--space-8) 0;
-    font-size: var(--font-size-sm);
-    color: var(--color-text-secondary);
-    transition: all var(--duration-fast) var(--ease-standard);
-}
-
-.price-card:hover .price-features li {
-    padding-left: var(--space-8);
-    color: var(--color-primary);
-}
-
-.price-features i {
-    color: var(--color-success);
-    margin-right: var(--space-8);
-}
-
-/* ===== TESTIMONIAL CARDS - CARD LIFT EFFECT ===== */
-
-.testimonial-card {
-    background-color: var(--color-surface);
-    padding: var(--space-24);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--color-border);
-    transition: all var(--duration-normal) var(--ease-standard);
+/* ===== CTA BUTTON ===== */
+.cta-button {
     position: relative;
-    overflow: hidden;
+    overflow: hidden !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    display: inline-block;
 }
 
-.testimonial-card::before {
+.cta-button:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 30px rgba(33, 128, 141, 0.3) !important;
+}
+
+.cta-button::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+}
+
+.cta-button:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* ===== BENEFITS LIST ===== */
+.benefits-list {
+    transition: all 0.3s ease;
+}
+
+.benefits-list li {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.benefits-list li:hover {
+    padding-left: 12px;
+    color: #218089;
+    transform: translateX(4px);
+}
+
+.benefits-list li::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 50%;
+    width: 4px;
     height: 4px;
-    background: linear-gradient(90deg, var(--color-primary), var(--color-success));
+    background: #218089;
+    border-radius: 50%;
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform var(--duration-normal) var(--ease-standard);
+    transition: transform 0.3s ease;
 }
 
-.testimonial-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 12px 30px rgba(33, 128, 141, 0.15);
-    border-color: var(--color-primary);
-}
-
-.testimonial-card:hover::before {
+.benefits-list li:hover::before {
     transform: scaleX(1);
 }
 
-.stars {
-    font-size: var(--font-size-base);
-    color: var(--color-warning);
-    margin-bottom: var(--space-16);
-    letter-spacing: var(--space-2);
+/* ===== HEADINGS ===== */
+.questionnaire-card h2 {
+    transition: color 0.3s ease;
+    color: #1f2121;
 }
 
-.testimonial-author {
-    font-weight: var
+.questionnaire-card h3 {
+    transition: color 0.3s ease;
+    color: #1f2121;
+}
+
+.questionnaire-card:hover h2,
+.questionnaire-card:hover h3 {
+    color: #218089;
+}
+
+/* ===== TEXT ===== */
+.intro-text {
+    transition: color 0.3s ease;
+}
+
+.questionnaire-card:hover .intro-text {
+    color: #218089;
+    font-weight: 600;
+}
+
+.subtext {
+    transition: color 0.3s ease;
+}
+
+.questionnaire-card:hover .subtext {
+    color: #777c7c;
+}
+
+/* ===== DISCLAIMER ===== */
+.disclaimer {
+    transition: all 0.3s ease;
+}
+
+.questionnaire-card:hover .disclaimer {
+    color: #218089;
+}
+
+/* ===== GENERAL LINKS ===== */
+a:not(.cta-button) {
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+a:not(.cta-button):hover {
+    color: #218089;
+}
+
+a:not(.cta-button)::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #218089;
+    transition: width 0.3s ease;
+}
+
+a:not(.cta-button):hover::after {
+    width: 100%;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    transition: all 0.3s ease;
+}
+
+/* ===== SECTION ===== */
+.questionnaire-section {
+    transition: all 0.3s ease;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .questionnaire-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 30px rgba(33, 128, 141, 0.15) !important;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-2px) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .questionnaire-card:hover {
+        transform: translateY(-4px);
+    }
+
+    .cta-button:hover {
+        transform: translateY(-1px) !important;
+    }
+
+    .benefits-list li:hover {
+        padding-left: 8px;
+        transform: translateX(2px);
+    }
+}
 
 }
